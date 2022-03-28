@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Kasir Sederhana</string>
+    <string name="app_title">Aplikasi Kasir Sederhana</string>
+    <string name="ayam_goreng">Ayam Goreng</string>
+    <string name="sate_ayam">Sate Ayam</string>
+    <string name="nasi">Nasi</string>
+    <string name="hargaAyam">Rp. 15.000</string>
+    <string name="hargaSate">Rp. 20.000</string>
+    <string name="hargaNasi">Rp. 5.000</string>
+</resources>
