@@ -9,4 +9,6 @@
     <string name="hargaNasi">Rp. 5.000</string>
     <string name="total">Totalnya Adalah : %d</string>
     <string name="total_awal">Total :</string>
+    <string name="reset">Reset</string>
+    <string name="invalid_feedback">QTY Tidak Boleh Kosong</string>
 </resources>
