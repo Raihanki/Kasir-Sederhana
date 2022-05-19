@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import org.d3if2033.kasirsederhana.R
@@ -33,6 +34,12 @@ class KasirFragment : Fragment() {
             addItemDecoration(DividerItemDecoration(context, RecyclerView.VERTICAL))
             adapter = KasirAdapter(getData())
             setHasFixedSize(true)
+        }
+
+        binding.buttonTambah.setOnClickListener {
+            it.findNavController().navigate(
+                R.id.action_kasirFragment_to_tambahMenuFragment
+            )
         }
     }
 

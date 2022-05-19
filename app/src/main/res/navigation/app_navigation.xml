@@ -8,23 +8,23 @@
     <fragment
         android:id="@+id/kasirFragment"
         android:name="org.d3if2033.kasirsederhana.ui.kasir.KasirFragment"
-        android:label="fragment_kasir"
+        android:label="Kasir"
         tools:layout="@layout/fragment_kasir" >
         <action
             android:id="@+id/action_kasirFragment_to_tambahMenuFragment"
             app:destination="@id/tambahMenuFragment" />
         <action
-            android:id="@+id/action_kasirFragment_to_historiFragment2"
-            app:destination="@id/historiFragment" />
+            android:id="@+id/action_kasirFragment_to_detailMenuFragment"
+            app:destination="@id/detailMenuFragment" />
     </fragment>
     <fragment
         android:id="@+id/tambahMenuFragment"
         android:name="org.d3if2033.kasirsederhana.ui.tambahmenu.TambahMenuFragment"
-        android:label="fragment_tambah_menu"
+        android:label="Tambah Menu"
         tools:layout="@layout/fragment_tambah_menu" />
     <fragment
-        android:id="@+id/historiFragment"
-        android:name="org.d3if2033.kasirsederhana.ui.histori.HistoriFragment"
-        android:label="fragment_histori"
-        tools:layout="@layout/fragment_histori" />
+        android:id="@+id/detailMenuFragment"
+        android:name="org.d3if2033.kasirsederhana.ui.detailmenu.DetailMenuFragment"
+        android:label="Detail Menu"
+        tools:layout="@layout/fragment_detail_menu" />
 </navigation>

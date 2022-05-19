@@ -25,10 +25,11 @@
         android:layout_height="55dp"
         android:layout_marginStart="32sp"
         android:inputType="number"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/chkMenu"
-        app:layout_constraintTop_toTopOf="@+id/chkMenu">
+        app:layout_constraintTop_toTopOf="@+id/chkMenu"
+        app:layout_constraintBottom_toBottomOf="@id/txtHarga">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textQtyMenu"
