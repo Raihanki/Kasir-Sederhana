@@ -11,5 +11,5 @@ interface MenuDao {
     fun insert(menu: MenuEntity)
 
     @Query("SELECT * FROM menus ORDER BY nama")
-    fun getALlMenu(): LiveData<MenuEntity?>
+    fun getALlMenu(): LiveData<List<MenuEntity>>
 }

@@ -5,16 +5,24 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.RecyclerView
 import org.d3if2033.kasirsederhana.R
 import org.d3if2033.kasirsederhana.databinding.FragmentKasirBinding
+import org.d3if2033.kasirsederhana.db.MenuDb
 import org.d3if2033.kasirsederhana.ui.kasir.model.Menu
 
-private lateinit var binding: FragmentKasirBinding;
 
 class KasirFragment : Fragment() {
+
+    private lateinit var binding: FragmentKasirBinding;
+    private lateinit var myAdapter: KasirAdapter;
+
+    private val viewModel: KasirViewModel by lazy {
+        val db = MenuDb.getInstance(requireContext())
+        val factory = KasirViewModelFactory(db.dao);
+        ViewModelProvider(this, factory)[KasirViewModel::class.java]
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,11 +38,16 @@ class KasirFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        myAdapter = KasirAdapter()
         with(binding.recycleViewMenu) {
-            addItemDecoration(DividerItemDecoration(context, RecyclerView.VERTICAL))
-            adapter = KasirAdapter(getData())
-            setHasFixedSize(true)
+            adapter = myAdapter
         }
+
+        viewModel.data.observe(viewLifecycleOwner, { menu ->
+            myAdapter.submitList(menu)
+        })
+
 
         binding.buttonTambah.setOnClickListener {
             it.findNavController().navigate(
@@ -50,5 +63,9 @@ class KasirFragment : Fragment() {
             Menu("Pempek Palembang", "20000")
         )
     }
+
+    private fun submitEvent() {
+    }
+
 
 }

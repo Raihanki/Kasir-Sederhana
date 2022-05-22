@@ -84,4 +84,14 @@
         android:layout_marginTop="16dp"
         android:text="@string/button_tambah_menu" />
 
+    <Button
+        android:id="@+id/buttonReset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/button"
+        app:layout_constraintBottom_toBottomOf="@id/button"
+        android:text="@string/reset" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
