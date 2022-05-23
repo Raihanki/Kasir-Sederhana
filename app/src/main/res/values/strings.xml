@@ -11,4 +11,6 @@
     <string name="total_awal">Total :</string>
     <string name="reset">Reset</string>
     <string name="invalid_feedback">QTY Tidak Boleh Kosong</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

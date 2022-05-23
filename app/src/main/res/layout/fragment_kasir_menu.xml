@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/app_title"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/chkAyamGoreng"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:paddingEnd="32dp"
+        android:text="@string/ayam_goreng"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <CheckBox
+        android:id="@+id/chkSateAyam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:paddingEnd="50dp"
+        android:text="@string/sate_ayam"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chkAyamGoreng" />
+
+    <CheckBox
+        android:id="@+id/chkNasi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:paddingEnd="89dp"
+        android:text="@string/nasi"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chkSateAyam" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/qtyAyam"
+        android:visibility="gone"
+        android:layout_width="100dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="32sp"
+        app:layout_constraintBottom_toBottomOf="@+id/chkAyamGoreng"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/chkAyamGoreng"
+        app:layout_constraintTop_toTopOf="@+id/chkAyamGoreng">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textQtyAyam"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="QTY" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:visibility="gone"
+        android:id="@+id/qtySate"
+        android:layout_width="100dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="32sp"
+        app:layout_constraintBottom_toBottomOf="@+id/chkSateAyam"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/chkSateAyam"
+        app:layout_constraintTop_toTopOf="@+id/chkSateAyam">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textQtySate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="QTY" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/qtyNasi"
+        android:layout_width="100dp"
+        android:layout_height="55dp"
+        android:visibility="gone"
+        android:layout_marginStart="32sp"
+        app:layout_constraintBottom_toBottomOf="@+id/chkNasi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/chkNasi"
+        app:layout_constraintTop_toTopOf="@+id/chkNasi">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textQtyNasi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="QTY" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:text="Hitung Total"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chkNasi" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="70dp"
+        app:layout_constraintTop_toBottomOf="@+id/chkAyamGoreng"
+        app:layout_constraintBottom_toBottomOf="@+id/chkSateAyam"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/hargaAyam"
+        tools:layout_editor_absoluteX="123dp"
+        tools:layout_editor_absoluteY="491dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="70dp"
+        app:layout_constraintTop_toBottomOf="@+id/chkSateAyam"
+        app:layout_constraintBottom_toBottomOf="@+id/chkNasi"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/hargaSate"
+        tools:layout_editor_absoluteX="123dp"
+        tools:layout_editor_absoluteY="491dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="70dp"
+        app:layout_constraintTop_toBottomOf="@+id/chkNasi"
+        app:layout_constraintBottom_toBottomOf="@+id/chkNasi"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/hargaNasi"
+        tools:layout_editor_absoluteX="123dp"
+        tools:layout_editor_absoluteY="491dp" />
+
+    <TextView
+        android:id="@+id/totalAwal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/total_awal"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+
+    <Button
+        android:id="@+id/resetButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:text="@string/reset"
+        app:layout_constraintBottom_toBottomOf="@+id/button"
+        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintTop_toTopOf="@+id/button" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

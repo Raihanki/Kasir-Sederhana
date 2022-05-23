@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/kasirMenuFragment">
+
+    <fragment
+        android:id="@+id/historiFragment"
+        android:name="org.d3if2033.kasirsederhana.ui.histori.HistoriFragment"
+        android:label="fragment_histori"
+        tools:layout="@layout/fragment_histori" >
+        <action
+            android:id="@+id/action_historiFragment_to_kasirMenuFragment"
+            app:destination="@id/kasirMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/kasirMenuFragment"
+        android:name="org.d3if2033.kasirsederhana.KasirMenuFragment"
+        android:label="fragment_kasir_menu"
+        tools:layout="@layout/fragment_kasir_menu" >
+        <action
+            android:id="@+id/action_kasirMenuFragment_to_historiFragment"
+            app:destination="@id/historiFragment" />
+    </fragment>
+</navigation>
