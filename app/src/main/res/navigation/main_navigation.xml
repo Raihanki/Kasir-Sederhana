@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/kasirMenuFragment"
-        android:name="org.d3if2033.kasirsederhana.KasirMenuFragment"
+        android:name="org.d3if2033.kasirsederhana.ui.kasir.KasirMenuFragment"
         android:label="fragment_kasir_menu"
         tools:layout="@layout/fragment_kasir_menu" >
         <action

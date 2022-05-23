@@ -2,19 +2,35 @@ package org.d3if2033.kasirsederhana.ui.kasir
 
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.d3if2033.kasirsederhana.R
 import org.d3if2033.kasirsederhana.databinding.FragmentKasirMenuBinding
+import org.d3if2033.kasirsederhana.db.HistoriEntity
+import org.d3if2033.kasirsederhana.db.KasirDb
+import java.text.SimpleDateFormat
+import java.util.*
 
 private lateinit var binding: FragmentKasirMenuBinding;
 
 class KasirMenuFragment : Fragment() {
 
     var total = 0
+
+    private val viewModel: KasirViewModel by lazy {
+        val db = KasirDb.getInstance(requireContext())
+        val factory = KasirViewModelFactory(db.dao)
+        ViewModelProvider(this, factory)[KasirViewModel::class.java]
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,8 +46,9 @@ class KasirMenuFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+//        super.onViewCreated(view, savedInstanceState)
         binding.chkSateAyam.setOnClickListener { chooseSateAyam() }
+        binding.chkAyamGoreng.setOnClickListener { chooseAyamGoreng() }
         binding.chkNasi.setOnClickListener { chooseNasi() }
         binding.button.setOnClickListener { submitEvent() }
         binding.resetButton.setOnClickListener { reset() }
@@ -60,6 +77,20 @@ class KasirMenuFragment : Fragment() {
             total += (5000 * Integer.parseInt(binding.textQtyNasi.text.toString()));
         }
         binding.totalAwal.text = getString(R.string.total, total);
+
+        //save data ke database
+        val dateFormatter = SimpleDateFormat("dd MMMM yyyy",
+            Locale("id", "ID"))
+        viewModel.saveHistori(
+            total.toString()
+        );
+        Toast.makeText(requireContext(), "Data Berhasil Di Tambahkan", Toast.LENGTH_LONG).show();
+
+        viewModel.data.observe(viewLifecycleOwner, {
+            if (it == null) return@observe
+            Log.d("KasirFragment", "Data tersimpan. ID = ${it.id}")
+        })
+
         total = 0;
     }
 
