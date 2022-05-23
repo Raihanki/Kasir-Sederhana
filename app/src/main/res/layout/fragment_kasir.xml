@@ -43,7 +43,20 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/recycleViewMenu" />
+            android:id="@+id/recycleViewMenu" >
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <TextView
+            android:id="@+id/totalAwal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            app:layout_constraintTop_toTopOf="@id/recycleViewMenu"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:layout_editor_absoluteY="139dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

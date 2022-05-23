@@ -10,6 +10,7 @@ import androidx.navigation.findNavController
 import org.d3if2033.kasirsederhana.R
 import org.d3if2033.kasirsederhana.databinding.FragmentKasirBinding
 import org.d3if2033.kasirsederhana.db.MenuDb
+import org.d3if2033.kasirsederhana.db.MenuEntity
 import org.d3if2033.kasirsederhana.ui.kasir.model.Menu
 
 
@@ -48,12 +49,35 @@ class KasirFragment : Fragment() {
             myAdapter.submitList(menu)
         })
 
+        setupOnItemClick()
+
+        setupObservers()
 
         binding.buttonTambah.setOnClickListener {
             it.findNavController().navigate(
                 R.id.action_kasirFragment_to_tambahMenuFragment
             )
         }
+    }
+
+    private fun setupObservers() {
+        viewModel.getDataMenu.observe(viewLifecycleOwner){
+            if (it != null) {
+                showTotal(it)
+            }
+        }
+    }
+
+    private fun showTotal(list: ArrayList<MenuEntity>) {
+//        binding.totalAwal.text = list
+    }
+
+    private fun setupOnItemClick() {
+        myAdapter.setListener(object : KasirAdapter.KasirListener {
+            override fun onItemClick(dataMenu: MenuEntity, isChecked: Boolean, qty: String) {
+                TODO("Not yet implemented")
+            }
+        })
     }
 
     private fun getData(): List<Menu> {

@@ -1,6 +1,7 @@
 package org.d3if2033.kasirsederhana.ui.kasir
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -42,6 +43,11 @@ import org.d3if2033.kasirsederhana.ui.kasir.model.Menu
 
 class KasirAdapter :
     ListAdapter<MenuEntity, KasirAdapter.ViewHolder>(DIFF_CALLBACK) {
+    lateinit var kasirListener: KasirListener;
+
+    fun setListener(kasirListener: KasirListener) {
+        this.kasirListener = kasirListener
+    }
 
     companion object {
         private val DIFF_CALLBACK =
@@ -59,12 +65,21 @@ class KasirAdapter :
             }
     }
 
-    class ViewHolder(
+    inner class ViewHolder(
         private val binding: ListMenuBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: MenuEntity) = with(binding) {
             chkMenu.text = item.nama;
             txtHarga.text = item.harga;
+
+            chkMenu.setOnClickListener {
+                if (chkMenu.isChecked) {
+                    qtyMenu.visibility = View.VISIBLE;
+                    kasirListener.onItemClick(item, true, textQtyMenu.text.toString())
+                } else {
+                    qtyMenu.visibility = View.GONE;
+                }
+            }
         }
     }
 
@@ -79,4 +94,9 @@ class KasirAdapter :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
+
+    interface KasirListener {
+        fun onItemClick(dataMenu: MenuEntity, isChecked: Boolean, qty: String)
+    }
 }
+
