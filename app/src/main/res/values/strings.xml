@@ -17,4 +17,5 @@
     <string name="hapus">Hapus</string>
     <string name="batal">Batal</string>
     <string name="infoKasir">Kasir adalah orang yang bertugas untuk mengurusi dan menyimpan hasil pembayaran terutama uang, dan memasukkannya ke dalam mesin kasir. Kasir dapat ditemukan di berbagai tempat, terutama di tempat-tempat yang memiliki titik penjualan seperti di dalam toko</string>
+    <string name="bagikan_template">Tanggal Pembelian : %1$s \nTotal Harga: %2$d</string>
 </resources>

@@ -13,6 +13,8 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class HistoriAdapter : ListAdapter<HistoriEntity, HistoriAdapter.ViewHolder>(DIFF_CALLBACK) {
+    lateinit var onItemClick: ((HistoriEntity) -> Unit)
+    lateinit var onItemDelete: ((HistoriEntity) -> Unit)
 
     companion object {
         private val DIFF_CALLBACK =
@@ -32,12 +34,21 @@ class HistoriAdapter : ListAdapter<HistoriEntity, HistoriAdapter.ViewHolder>(DIF
 
     inner class ViewHolder(private val binding: ItemHistoriBinding): RecyclerView.ViewHolder(binding.root)
     {
+        @SuppressLint("SetTextI18n")
         fun bind(item: HistoriEntity) = with(binding) {
             val dateFormatter = SimpleDateFormat("dd MMMM yyyy",
                 Locale("id", "ID"))
 
-            tanggalTransaksi.text = dateFormatter.format(Date(item.tanggalPembelian))
-            total.text = item.total
+            tanggalTransaksi.text = "Pembelian pada tanggal " + dateFormatter.format(Date(item.tanggalPembelian))
+            total.text = "Total Harga : Rp. " + item.total
+
+            binding.shareButton.setOnClickListener{
+                onItemClick(item)
+            }
+
+            binding.deleteButton.setOnClickListener {
+                onItemDelete(item)
+            }
         }
     }
 

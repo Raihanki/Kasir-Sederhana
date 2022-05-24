@@ -1,5 +1,6 @@
 package org.d3if2033.kasirsederhana.ui.histori
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -14,6 +15,8 @@ import org.d3if2033.kasirsederhana.R
 import org.d3if2033.kasirsederhana.databinding.FragmentHistoriBinding
 import org.d3if2033.kasirsederhana.db.KasirDb
 import org.d3if2033.kasirsederhana.ui.kasir.KasirViewModel
+import java.text.SimpleDateFormat
+import java.util.*
 
 class HistoriFragment : Fragment() {
 
@@ -45,6 +48,7 @@ class HistoriFragment : Fragment() {
         with(binding.recyclerView) {
             adapter = myAdapter
         }
+        setupOnItemClick()
 
         viewModel.data.observe(viewLifecycleOwner, { menu ->
             Log.d("TesData", menu.toString())
@@ -64,5 +68,23 @@ class HistoriFragment : Fragment() {
                 .show()
         }
 
+    }
+
+    private fun setupOnItemClick() {
+        myAdapter.onItemClick = { data ->
+            val dateFormatter = SimpleDateFormat("dd MMMM yyyy",
+            Locale("id", "ID"))
+            var tanggal = dateFormatter.format(data.tanggalPembelian).toString()
+            val message = getString(R.string.bagikan_template, tanggal, data.total.toInt())
+            val shareIntent = Intent(Intent.ACTION_SEND)
+            shareIntent.setType("text/plain").putExtra(Intent.EXTRA_TEXT, message)
+            if (shareIntent.resolveActivity(requireActivity().packageManager) != null) {
+                startActivity(shareIntent)
+            }
+        }
+
+        myAdapter.onItemDelete = {
+
+        }
     }
 }
