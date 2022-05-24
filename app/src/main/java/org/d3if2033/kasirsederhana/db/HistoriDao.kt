@@ -12,4 +12,7 @@ interface HistoriDao {
 
     @Query("SELECT * FROM histori")
     fun getAllHistori(): LiveData<List<HistoriEntity>>
+
+    @Query("DELETE FROM histori")
+    fun clearData()
 }

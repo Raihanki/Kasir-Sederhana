@@ -65,21 +65,27 @@ class KasirMenuFragment : Fragment() {
                 Toast.makeText(context, R.string.invalid_feedback, Toast.LENGTH_LONG).show()
                 return
             }
-            total += (15000 * Integer.parseInt(binding.textQtyAyam.text.toString()));
+            viewModel.hitungTotal(15000,Integer.parseInt(binding.textQtyAyam.text.toString()));
         }
         if (binding.chkSateAyam.isChecked) {
             if (TextUtils.isEmpty(binding.textQtySate.text.toString())) {
                 Toast.makeText(context, R.string.invalid_feedback, Toast.LENGTH_LONG).show()
                 return
             }
-            total += (20000 * Integer.parseInt(binding.textQtySate.text.toString()));
+            viewModel.hitungTotal(20000, Integer.parseInt(binding.textQtySate.text.toString()))
+//            total += (20000 * Integer.parseInt(binding.textQtySate.text.toString()));
         }
         if (binding.chkNasi.isChecked) {
             if (TextUtils.isEmpty(binding.textQtyNasi.text.toString())) {
                 Toast.makeText(context, R.string.invalid_feedback, Toast.LENGTH_LONG).show()
                 return
             }
-            total += (5000 * Integer.parseInt(binding.textQtyNasi.text.toString()));
+            viewModel.hitungTotal(5000, Integer.parseInt(binding.textQtyNasi.text.toString()))
+        }
+        viewModel.getQuantity.observe(viewLifecycleOwner){
+            if(it!=null) {
+                total = it
+            }
         }
         binding.totalAwal.text = getString(R.string.total, total);
 

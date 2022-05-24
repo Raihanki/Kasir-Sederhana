@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Tugas GAOU Kuliah/Smester 4/MobPro/Kasir-Sederhana/app/src/main/res/drawable/ic_baseline_delete_forever_24.xml" value="0.142" />
         <entry key="..\:/Tugas GAOU Kuliah/Smester 4/MobPro/Kasir-Sederhana/app/src/main/res/drawable/ic_baseline_history_24.xml" value="0.142" />
         <entry key="..\:/Tugas GAOU Kuliah/Smester 4/MobPro/Kasir-Sederhana/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Tugas GAOU Kuliah/Smester 4/MobPro/Kasir-Sederhana/app/src/main/res/layout/fragment_about.xml" value="0.17798913043478262" />
         <entry key="..\:/Tugas GAOU Kuliah/Smester 4/MobPro/Kasir-Sederhana/app/src/main/res/layout/fragment_detail_menu.xml" value="0.33" />
         <entry key="..\:/Tugas GAOU Kuliah/Smester 4/MobPro/Kasir-Sederhana/app/src/main/res/layout/fragment_histori.xml" value="0.22" />
         <entry key="..\:/Tugas GAOU Kuliah/Smester 4/MobPro/Kasir-Sederhana/app/src/main/res/layout/fragment_kasir.xml" value="0.33" />

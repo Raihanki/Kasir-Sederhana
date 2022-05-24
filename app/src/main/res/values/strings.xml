@@ -13,4 +13,8 @@
     <string name="invalid_feedback">QTY Tidak Boleh Kosong</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="konfirmasi_hapus">Apakah anda yakin ingin menghapus data ini ?</string>
+    <string name="hapus">Hapus</string>
+    <string name="batal">Batal</string>
+    <string name="infoKasir">Kasir adalah orang yang bertugas untuk mengurusi dan menyimpan hasil pembayaran terutama uang, dan memasukkannya ke dalam mesin kasir. Kasir dapat ditemukan di berbagai tempat, terutama di tempat-tempat yang memiliki titik penjualan seperti di dalam toko</string>
 </resources>
