@@ -3,10 +3,8 @@ package org.d3if2033.kasirsederhana.ui.kasir
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
@@ -43,6 +41,7 @@ class KasirMenuFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentKasirMenuBinding.inflate(layoutInflater, container, false);
+        setHasOptionsMenu(true)
         return binding.root;
     }
 
@@ -57,6 +56,19 @@ class KasirMenuFragment : Fragment() {
         binding.floatingActionButton.setOnClickListener {
             findNavController().navigate(R.id.action_kasirMenuFragment_to_historiFragment)
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.options_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.menu_about) {
+            findNavController().navigate(R.id.action_kasirMenuFragment_to_aboutFragment)
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun submitEvent() {

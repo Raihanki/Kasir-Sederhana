@@ -6,7 +6,7 @@
         <entry key="..\:/Tugas GAOU Kuliah/Smester 4/MobPro/Kasir-Sederhana/app/src/main/res/drawable/ic_baseline_delete_forever_24.xml" value="0.142" />
         <entry key="..\:/Tugas GAOU Kuliah/Smester 4/MobPro/Kasir-Sederhana/app/src/main/res/drawable/ic_baseline_history_24.xml" value="0.142" />
         <entry key="..\:/Tugas GAOU Kuliah/Smester 4/MobPro/Kasir-Sederhana/app/src/main/res/layout/activity_main.xml" value="0.22" />
-        <entry key="..\:/Tugas GAOU Kuliah/Smester 4/MobPro/Kasir-Sederhana/app/src/main/res/layout/fragment_about.xml" value="0.33" />
+        <entry key="..\:/Tugas GAOU Kuliah/Smester 4/MobPro/Kasir-Sederhana/app/src/main/res/layout/fragment_about.xml" value="0.25" />
         <entry key="..\:/Tugas GAOU Kuliah/Smester 4/MobPro/Kasir-Sederhana/app/src/main/res/layout/fragment_detail_menu.xml" value="0.33" />
         <entry key="..\:/Tugas GAOU Kuliah/Smester 4/MobPro/Kasir-Sederhana/app/src/main/res/layout/fragment_histori.xml" value="0.22" />
         <entry key="..\:/Tugas GAOU Kuliah/Smester 4/MobPro/Kasir-Sederhana/app/src/main/res/layout/fragment_kasir.xml" value="0.33" />
@@ -15,6 +15,7 @@
         <entry key="..\:/Tugas GAOU Kuliah/Smester 4/MobPro/Kasir-Sederhana/app/src/main/res/layout/fragment_tambah_menu.xml" value="0.33" />
         <entry key="..\:/Tugas GAOU Kuliah/Smester 4/MobPro/Kasir-Sederhana/app/src/main/res/layout/item_histori.xml" value="0.5" />
         <entry key="..\:/Tugas GAOU Kuliah/Smester 4/MobPro/Kasir-Sederhana/app/src/main/res/layout/list_menu.xml" value="0.25" />
+        <entry key="..\:/Tugas GAOU Kuliah/Smester 4/MobPro/Kasir-Sederhana/app/src/main/res/menu/options_menu.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/User/AndroidStudioProjects/KasirSederhana/app/src/main/res/layout/activity_main.xml" value="0.33" />
       </map>
     </option>

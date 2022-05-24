@@ -2,6 +2,7 @@ package org.d3if2033.kasirsederhana.db
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 
@@ -15,4 +16,7 @@ interface HistoriDao {
 
     @Query("DELETE FROM histori")
     fun clearData()
+
+    @Delete
+    fun deleteData(histori: HistoriEntity)
 }

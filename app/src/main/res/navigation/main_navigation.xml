@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/historiFragment"
         android:name="org.d3if2033.kasirsederhana.ui.histori.HistoriFragment"
-        android:label="fragment_histori"
+        android:label="Histori Pembelian"
         tools:layout="@layout/fragment_histori" >
         <action
             android:id="@+id/action_historiFragment_to_kasirMenuFragment"
@@ -17,7 +17,7 @@
     <fragment
         android:id="@+id/kasirMenuFragment"
         android:name="org.d3if2033.kasirsederhana.ui.kasir.KasirMenuFragment"
-        android:label="fragment_kasir_menu"
+        android:label="Kasir"
         tools:layout="@layout/fragment_kasir_menu" >
         <action
             android:id="@+id/action_kasirMenuFragment_to_historiFragment"
@@ -28,7 +28,11 @@
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
-        android:name="org.d3if2033.kasirsederhana.AboutFragment"
-        android:label="fragment_about"
-        tools:layout="@layout/fragment_about" />
+        android:name="org.d3if2033.kasirsederhana.ui.about.AboutFragment"
+        android:label="Tentang Aplikasi"
+        tools:layout="@layout/fragment_about" >
+        <action
+            android:id="@+id/action_aboutFragment_to_kasirMenuFragment"
+            app:destination="@id/kasirMenuFragment" />
+    </fragment>
 </navigation>

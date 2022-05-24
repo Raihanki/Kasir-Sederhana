@@ -1,5 +1,6 @@
 package org.d3if2033.kasirsederhana.ui.histori
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -41,6 +42,7 @@ class HistoriFragment : Fragment() {
         return binding.root;
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 //        super.onViewCreated(view, savedInstanceState)
 
@@ -68,6 +70,12 @@ class HistoriFragment : Fragment() {
                 .show()
         }
 
+        viewModel.getIsDeleted.observe(viewLifecycleOwner, {
+            if (it == true) {
+                myAdapter.notifyDataSetChanged()
+            }
+        })
+
     }
 
     private fun setupOnItemClick() {
@@ -84,7 +92,16 @@ class HistoriFragment : Fragment() {
         }
 
         myAdapter.onItemDelete = {
-
+            MaterialAlertDialogBuilder(requireContext())
+                .setMessage(R.string.konfirmasi_hapus)
+                .setPositiveButton(getString(R.string.hapus)) { _, _ ->
+                    viewModel.deleteData(it)
+                    Toast.makeText(requireContext(), "Data Berhasil Di Hapus", Toast.LENGTH_LONG).show();
+                }
+                .setNegativeButton(getString(R.string.batal)) { dialog, _ ->
+                    dialog.cancel()
+                }
+                .show()
         }
     }
 }

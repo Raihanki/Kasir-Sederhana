@@ -24,6 +24,7 @@ class KasirViewModel(private val db: HistoriDao): ViewModel() {
             }
         }
     }
+
     fun hitungTotal(hargaSatuan: Int ,qty: Int){
         var total = 0
         total += (hargaSatuan*qty)
