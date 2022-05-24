@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -52,6 +53,10 @@ class KasirMenuFragment : Fragment() {
         binding.chkNasi.setOnClickListener { chooseNasi() }
         binding.button.setOnClickListener { submitEvent() }
         binding.resetButton.setOnClickListener { reset() }
+
+        binding.floatingActionButton.setOnClickListener {
+            findNavController().navigate(R.id.action_kasirMenuFragment_to_historiFragment)
+        }
     }
 
     private fun submitEvent() {
@@ -79,17 +84,10 @@ class KasirMenuFragment : Fragment() {
         binding.totalAwal.text = getString(R.string.total, total);
 
         //save data ke database
-        val dateFormatter = SimpleDateFormat("dd MMMM yyyy",
-            Locale("id", "ID"))
         viewModel.saveHistori(
             total.toString()
         );
         Toast.makeText(requireContext(), "Data Berhasil Di Tambahkan", Toast.LENGTH_LONG).show();
-
-        viewModel.data.observe(viewLifecycleOwner, {
-            if (it == null) return@observe
-            Log.d("KasirFragment", "Data tersimpan. ID = ${it.id}")
-        })
 
         total = 0;
     }

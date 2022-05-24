@@ -11,5 +11,5 @@ interface HistoriDao {
     fun insert(histori: HistoriEntity)
 
     @Query("SELECT * FROM histori")
-    fun getAllHistori(): LiveData<HistoriEntity?>
+    fun getAllHistori(): LiveData<List<HistoriEntity>>
 }

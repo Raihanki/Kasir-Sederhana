@@ -9,9 +9,6 @@ import org.d3if2033.kasirsederhana.db.HistoriDao
 import org.d3if2033.kasirsederhana.db.HistoriEntity
 
 class KasirViewModel(private val db: HistoriDao): ViewModel() {
-
-    val data = db.getAllHistori();
-
     fun saveHistori(total: String) {
         viewModelScope.launch {
             withContext(Dispatchers.IO) {
