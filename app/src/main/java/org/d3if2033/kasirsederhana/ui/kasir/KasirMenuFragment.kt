@@ -68,6 +68,10 @@ class KasirMenuFragment : Fragment() {
             findNavController().navigate(R.id.action_kasirMenuFragment_to_aboutFragment)
             return true
         }
+        if (item.itemId == R.id.menu_datar_kasir) {
+            findNavController().navigate(R.id.action_kasirMenuFragment_to_daftarKasirFragment)
+            return true
+        }
         return super.onOptionsItemSelected(item)
     }
 

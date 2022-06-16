@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_kasirMenuFragment_to_aboutFragment"
             app:destination="@id/aboutFragment" />
+        <action
+            android:id="@+id/action_kasirMenuFragment_to_daftarKasirFragment"
+            app:destination="@id/daftarKasirFragment" />
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
@@ -33,6 +36,15 @@
         tools:layout="@layout/fragment_about" >
         <action
             android:id="@+id/action_aboutFragment_to_kasirMenuFragment"
+            app:destination="@id/kasirMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/daftarKasirFragment"
+        android:name="org.d3if2033.kasirsederhana.ui.daftarkasir.DaftarKasirFragment"
+        android:label="fragment_daftar_kasir"
+        tools:layout="@layout/fragment_daftar_kasir" >
+        <action
+            android:id="@+id/action_daftarKasirFragment_to_kasirMenuFragment"
             app:destination="@id/kasirMenuFragment" />
     </fragment>
 </navigation>

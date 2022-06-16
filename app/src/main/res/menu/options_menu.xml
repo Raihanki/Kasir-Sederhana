@@ -5,4 +5,9 @@
         android:id="@+id/menu_about"
         android:title="@string/tentang_aplikasi"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_datar_kasir"
+        android:title="@string/daftar_kasir"
+        app:showAsAction="never" />
 </menu>
