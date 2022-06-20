@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.RecyclerView
 import org.d3if2033.kasirsederhana.R
 import org.d3if2033.kasirsederhana.databinding.FragmentDaftarKasirBinding
 import org.d3if2033.kasirsederhana.db.KasirDb
@@ -16,6 +18,7 @@ import org.d3if2033.kasirsederhana.ui.histori.HistoriViewModelFactory
 class DaftarKasirFragment : Fragment() {
 
     private lateinit var binding: FragmentDaftarKasirBinding;
+    private lateinit var myAdapter: DaftarKasirAdapter;
 
     private val viewModel: DaftarKasirViewModel by lazy {
         ViewModelProvider(this).get(DaftarKasirViewModel::class.java);
@@ -30,11 +33,19 @@ class DaftarKasirFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentDaftarKasirBinding.inflate(layoutInflater, container, false);
+        myAdapter = DaftarKasirAdapter()
+        with(binding.recyclerView) {
+            addItemDecoration(DividerItemDecoration(context, RecyclerView.VERTICAL))
+            adapter = myAdapter
+            setHasFixedSize(true);
+        }
         return binding.root;
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getData();
+        viewModel.getData().observe(viewLifecycleOwner, {
+            myAdapter.updateData(it);
+        })
     }
 }

@@ -14,15 +14,13 @@ class DaftarKasirViewModel : ViewModel() {
 
     private val data = MutableLiveData<List<Kasir>>()
     init {
-        data.value
         retriveData()
     }
 
     private fun retriveData() {
         viewModelScope.launch (Dispatchers.IO) {
             try {
-                val result = KasirApi.service.getKasir();
-                Log.d("DaftarKasirViewModel", "Success: $result");
+                data.postValue(KasirApi.service.getKasir());
             } catch (e: Exception) {
                 Log.d("DaftarKasirViewModel", "Failure: ${e.message}");
             }
