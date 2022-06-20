@@ -1,5 +1,6 @@
 package org.d3if2033.kasirsederhana.network
 
+import android.util.Log
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import org.d3if2033.kasirsederhana.model.Kasir
@@ -26,5 +27,10 @@ interface KasirApiService {
 object KasirApi {
     val service: KasirApiService by lazy {
         retrofit.create(KasirApiService::class.java)
+    }
+
+    fun getKasirUrl(nama: String) : String {
+        return BASE_URL + "datakasir/" + nama + ".jpg";
+
     }
 }

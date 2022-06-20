@@ -6,9 +6,12 @@ import android.view.ViewGroup
 import android.widget.ListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import org.d3if2033.kasirsederhana.R
 import org.d3if2033.kasirsederhana.databinding.ItemDaftarKasirBinding
 import org.d3if2033.kasirsederhana.databinding.ItemHistoriBinding
 import org.d3if2033.kasirsederhana.model.Kasir
+import org.d3if2033.kasirsederhana.network.KasirApi
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -22,10 +25,13 @@ class DaftarKasirAdapter : RecyclerView.Adapter<DaftarKasirAdapter.ViewHolder>()
 
     inner class ViewHolder(private val binding: ItemDaftarKasirBinding): RecyclerView.ViewHolder(binding.root)
     {
-        @SuppressLint("SetTextI18n")
         fun bind(item: Kasir) = with(binding) {
             namaTextView.text = item.name;
             ageText.text = item.age;
+            Glide.with(imageView.context)
+                .load(KasirApi.getKasirUrl(item.imageId))
+                .error(R.drawable.ic_baseline_broken_image_24)
+                .into(binding.imageView)
         }
     }
 
