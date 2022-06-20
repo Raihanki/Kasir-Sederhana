@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import org.d3if2033.kasirsederhana.R
 import org.d3if2033.kasirsederhana.databinding.FragmentDaftarKasirBinding
 import org.d3if2033.kasirsederhana.db.KasirDb
+import org.d3if2033.kasirsederhana.network.ApiStatus
 import org.d3if2033.kasirsederhana.ui.histori.HistoriViewModel
 import org.d3if2033.kasirsederhana.ui.histori.HistoriViewModelFactory
 
@@ -47,5 +48,24 @@ class DaftarKasirFragment : Fragment() {
         viewModel.getData().observe(viewLifecycleOwner, {
             myAdapter.updateData(it);
         })
+
+        viewModel.getStatus().observe(viewLifecycleOwner, {
+            updateProgress(it)
+        })
+    }
+
+    private fun updateProgress(status: ApiStatus) {
+        when (status) {
+            ApiStatus.LOADING -> {
+                binding.progressBar.visibility = View.VISIBLE;
+            }
+            ApiStatus.SUCCESS -> {
+                binding.progressBar.visibility = View.GONE;
+            }
+            ApiStatus.FAILED -> {
+                binding.progressBar.visibility = View.GONE;
+                binding.networkError.visibility = View.VISIBLE;
+            }
+        }
     }
 }

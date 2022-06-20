@@ -34,3 +34,5 @@ object KasirApi {
 
     }
 }
+
+enum class ApiStatus { LOADING, SUCCESS, FAILED }

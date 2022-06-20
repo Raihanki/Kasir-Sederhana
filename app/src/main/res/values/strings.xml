@@ -20,4 +20,5 @@
     <string name="bagikan_template">Tanggal Pembelian : %1$s \nTotal Harga: %2$d</string>
     <string name="tentang_aplikasi">Tentang Aplikasi</string>
     <string name="daftar_kasir">Daftar Kasir</string>
+    <string name="koneksi_error">Koneksi Error</string>
 </resources>
