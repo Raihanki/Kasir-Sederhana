@@ -6,6 +6,9 @@ import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.Toast
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.fragment.findNavController
@@ -47,11 +50,11 @@ class KasirMenuFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 //        super.onViewCreated(view, savedInstanceState)
-        binding.chkSateAyam.setOnClickListener { chooseSateAyam() }
-        binding.chkAyamGoreng.setOnClickListener { chooseAyamGoreng() }
-        binding.chkNasi.setOnClickListener { chooseNasi() }
+        binding.chkPempekLenggang.setOnClickListener { choosePempekLenggang() }
+        binding.chkPempekAdaan.setOnClickListener { choosePempekAdaan() }
+        binding.chkPempekLenjerBesar.setOnClickListener { chooseLenjerBesar() }
         binding.button.setOnClickListener { submitEvent() }
-        binding.resetButton.setOnClickListener { reset() }
+        binding.resetButton.setOnClickListener { resetTotal() }
 
         binding.floatingActionButton.setOnClickListener {
             findNavController().navigate(R.id.action_kasirMenuFragment_to_historiFragment)
@@ -76,31 +79,46 @@ class KasirMenuFragment : Fragment() {
     }
 
     private fun submitEvent() {
-        if(binding.chkAyamGoreng.isChecked) {
-            if (TextUtils.isEmpty(binding.textQtyAyam.text.toString())) {
+        if(binding.chkPempekLenggang.isChecked) {
+            if (TextUtils.isEmpty(binding.textQtyLenggang.text.toString())) {
                 Toast.makeText(context, R.string.invalid_feedback, Toast.LENGTH_LONG).show()
                 return
             }
-            viewModel.hitungTotal(15000,Integer.parseInt(binding.textQtyAyam.text.toString()));
+            viewModel.hitungTotal(13000,Integer.parseInt(binding.textQtyLenggang.text.toString()));
+            viewModel.getQuantity.observeOnce(viewLifecycleOwner){
+                if(it!=null) {
+                    Log.d("total", "sbl dtmbh $total")
+                    total += it
+                    Log.d("total", "sbdh dtmbh $total")
+                }
+            }
         }
-        if (binding.chkSateAyam.isChecked) {
-            if (TextUtils.isEmpty(binding.textQtySate.text.toString())) {
+        if (binding.chkPempekLenjerBesar.isChecked) {
+            if (TextUtils.isEmpty(binding.textQtyLenjerBesar.text.toString())) {
                 Toast.makeText(context, R.string.invalid_feedback, Toast.LENGTH_LONG).show()
                 return
             }
-            viewModel.hitungTotal(20000, Integer.parseInt(binding.textQtySate.text.toString()))
-//            total += (20000 * Integer.parseInt(binding.textQtySate.text.toString()));
+            viewModel.hitungTotal(11000, Integer.parseInt(binding.textQtyLenjerBesar.text.toString()))
+            viewModel.getQuantity.observeOnce(viewLifecycleOwner){
+                if(it!=null) {
+                    Log.d("total", "sbl dtmbh $total")
+                    total += it
+                    Log.d("total", "sbdh dtmbh $total")
+                }
+            }
         }
-        if (binding.chkNasi.isChecked) {
-            if (TextUtils.isEmpty(binding.textQtyNasi.text.toString())) {
+        if (binding.chkPempekAdaan.isChecked) {
+            if (TextUtils.isEmpty(binding.textQtyAdaan.text.toString())) {
                 Toast.makeText(context, R.string.invalid_feedback, Toast.LENGTH_LONG).show()
                 return
             }
-            viewModel.hitungTotal(5000, Integer.parseInt(binding.textQtyNasi.text.toString()))
-        }
-        viewModel.getQuantity.observe(viewLifecycleOwner){
-            if(it!=null) {
-                total = it
+            viewModel.hitungTotal(6000, Integer.parseInt(binding.textQtyAdaan.text.toString()))
+            viewModel.getQuantity.observeOnce(viewLifecycleOwner){
+                if(it!=null) {
+                    Log.d("total", "sbl dtmbh $total")
+                    total += it
+                    Log.d("total", "sbdh dtmbh $total")
+                }
             }
         }
         binding.totalAwal.text = getString(R.string.total, total);
@@ -112,41 +130,59 @@ class KasirMenuFragment : Fragment() {
         Toast.makeText(requireContext(), "Data Berhasil Di Tambahkan", Toast.LENGTH_LONG).show();
 
         total = 0;
+        reset()
     }
 
-    private fun chooseSateAyam() {
-        if (binding.chkSateAyam.isChecked) {
-            binding.qtySate.visibility = View.VISIBLE;
+    private fun choosePempekLenggang() {
+        if (binding.chkPempekLenggang.isChecked) {
+            binding.qtyLenggang.visibility = View.VISIBLE;
         } else {
-            binding.qtySate.visibility = View.GONE;
+            binding.qtyLenggang.visibility = View.GONE;
         }
     }
 
-    private fun chooseAyamGoreng() {
-        if (binding.chkAyamGoreng.isChecked) {
-            binding.qtyAyam.visibility = View.VISIBLE;
+    private fun choosePempekAdaan() {
+        if (binding.chkPempekAdaan.isChecked) {
+            binding.qtyAdaan.visibility = View.VISIBLE;
         } else {
-            binding.qtyAyam.visibility = View.GONE;
+            binding.qtyAdaan.visibility = View.GONE;
         }
     }
 
-    private fun chooseNasi() {
-        if (binding.chkNasi.isChecked) {
-            binding.qtyNasi.visibility = View.VISIBLE;
+    private fun chooseLenjerBesar() {
+        if (binding.chkPempekLenjerBesar.isChecked) {
+            binding.qtyLenjerBesar.visibility = View.VISIBLE;
         } else {
-            binding.qtyNasi.visibility = View.GONE;
+            binding.qtyLenjerBesar.visibility = View.GONE;
         }
     }
 
     private fun reset() {
         total = 0;
-        binding.qtyNasi.visibility = View.GONE;
-        binding.qtyAyam.visibility = View.GONE;
-        binding.qtySate.visibility = View.GONE;
-        binding.chkSateAyam.setChecked(false);
-        binding.chkAyamGoreng.setChecked(false);
-        binding.chkNasi.setChecked(false);
+        binding.qtyLenjerBesar.visibility = View.GONE;
+        binding.qtyLenggang.visibility = View.GONE;
+        binding.qtyAdaan.visibility = View.GONE;
+        binding.textQtyAdaan.text?.clear()
+        binding.textQtyLenggang.text?.clear()
+        binding.textQtyLenjerBesar.text?.clear()
+        binding.chkPempekLenjerBesar.setChecked(false);
+        binding.chkPempekAdaan.setChecked(false);
+        binding.chkPempekLenggang.setChecked(false);
+        viewModel.quantity.value = 0
+    }
+
+    private fun resetTotal()
+    {
+        reset();
         binding.totalAwal.text = getString(R.string.total, total);
     }
 
+    fun <T> LiveData<T>.observeOnce(lifecycleOwner: LifecycleOwner, observer: Observer<T>) {
+        observe(lifecycleOwner, object : Observer<T> {
+            override fun onChanged(t: T?) {
+                observer.onChanged(t)
+                removeObserver(this)
+            }
+        })
+    }
 }

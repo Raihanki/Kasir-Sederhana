@@ -17,7 +17,7 @@
     <fragment
         android:id="@+id/kasirMenuFragment"
         android:name="org.d3if2033.kasirsederhana.ui.kasir.KasirMenuFragment"
-        android:label="Kasir"
+        android:label="Pempek Lema'k 179"
         tools:layout="@layout/fragment_kasir_menu" >
         <action
             android:id="@+id/action_kasirMenuFragment_to_historiFragment"
@@ -41,7 +41,7 @@
     <fragment
         android:id="@+id/daftarKasirFragment"
         android:name="org.d3if2033.kasirsederhana.ui.daftarkasir.DaftarKasirFragment"
-        android:label="fragment_daftar_kasir"
+        android:label="Daftar Kasir"
         tools:layout="@layout/fragment_daftar_kasir" >
         <action
             android:id="@+id/action_daftarKasirFragment_to_kasirMenuFragment"

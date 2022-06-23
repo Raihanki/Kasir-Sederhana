@@ -11,7 +11,7 @@ import org.d3if2033.kasirsederhana.db.HistoriDao
 import org.d3if2033.kasirsederhana.db.HistoriEntity
 
 class KasirViewModel(private val db: HistoriDao): ViewModel() {
-    private var quantity = MutableLiveData<Int>()
+    public var quantity = MutableLiveData<Int>()
     val getQuantity: LiveData<Int> get() = (quantity)
 
     fun saveHistori(total: String) {
@@ -27,7 +27,8 @@ class KasirViewModel(private val db: HistoriDao): ViewModel() {
 
     fun hitungTotal(hargaSatuan: Int ,qty: Int){
         var total = 0
-        total += (hargaSatuan*qty)
+        total += (hargaSatuan * qty)
         quantity.value = total
+        total = 0
     }
 }

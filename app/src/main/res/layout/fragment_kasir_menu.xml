@@ -24,52 +24,52 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <CheckBox
-            android:id="@+id/chkAyamGoreng"
+            android:id="@+id/chkPempekLenggang"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="24dp"
             android:paddingEnd="32dp"
-            android:text="@string/ayam_goreng"
+            android:text="@string/pempek_lenggang"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <CheckBox
-            android:id="@+id/chkSateAyam"
+            android:id="@+id/chkPempekAdaan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="24dp"
             android:paddingEnd="50dp"
-            android:text="@string/sate_ayam"
+            android:text="@string/pempek_adaan"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/chkAyamGoreng" />
+            app:layout_constraintTop_toBottomOf="@+id/chkPempekLenggang" />
 
         <CheckBox
-            android:id="@+id/chkNasi"
+            android:id="@+id/chkPempekLenjerBesar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="24dp"
             android:paddingEnd="89dp"
-            android:text="@string/nasi"
+            android:text="@string/pempek_lenjer_besar"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/chkSateAyam" />
+            app:layout_constraintTop_toBottomOf="@+id/chkPempekAdaan" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/qtyAyam"
+            android:id="@+id/qtyLenggang"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="100dp"
             android:layout_height="55dp"
-            android:layout_marginStart="32sp"
+            android:layout_marginStart="32dp"
             android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="@+id/chkAyamGoreng"
+            app:layout_constraintBottom_toBottomOf="@+id/chkPempekLenggang"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/chkAyamGoreng"
-            app:layout_constraintTop_toTopOf="@+id/chkAyamGoreng">
+            app:layout_constraintStart_toEndOf="@+id/chkPempekLenggang"
+            app:layout_constraintTop_toTopOf="@+id/chkPempekLenggang">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/textQtyAyam"
+                android:id="@+id/textQtyLenggang"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -78,19 +78,19 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/qtySate"
+            android:id="@+id/qtyAdaan"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="100dp"
             android:layout_height="55dp"
-            android:layout_marginStart="32sp"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="@+id/chkSateAyam"
+            android:layout_marginStart="32dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/chkPempekAdaan"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/chkSateAyam"
-            app:layout_constraintTop_toTopOf="@+id/chkSateAyam">
+            app:layout_constraintStart_toEndOf="@+id/chkPempekAdaan"
+            app:layout_constraintTop_toTopOf="@+id/chkPempekAdaan">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/textQtySate"
+                android:id="@+id/textQtyAdaan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -99,19 +99,19 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/qtyNasi"
+            android:id="@+id/qtyLenjerBesar"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="100dp"
             android:layout_height="55dp"
-            android:layout_marginStart="32sp"
+            android:layout_marginStart="-46dp"
             android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="@+id/chkNasi"
+            app:layout_constraintBottom_toBottomOf="@+id/chkPempekLenjerBesar"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/chkNasi"
-            app:layout_constraintTop_toTopOf="@+id/chkNasi">
+            app:layout_constraintStart_toEndOf="@+id/chkPempekLenjerBesar"
+            app:layout_constraintTop_toTopOf="@+id/chkPempekLenjerBesar">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/textQtyNasi"
+                android:id="@+id/textQtyLenjerBesar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -127,7 +127,7 @@
             android:layout_marginTop="32dp"
             android:text="Hitung Total"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/chkNasi" />
+            app:layout_constraintTop_toBottomOf="@+id/chkPempekLenjerBesar" />
 
         <TextView
             android:id="@+id/textView2"
@@ -135,10 +135,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginBottom="70dp"
-            android:text="@string/hargaAyam"
-            app:layout_constraintBottom_toBottomOf="@+id/chkSateAyam"
+            android:text="@string/hargaLenggang"
+            app:layout_constraintBottom_toBottomOf="@+id/chkPempekAdaan"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/chkAyamGoreng"
+            app:layout_constraintTop_toBottomOf="@+id/chkPempekLenggang"
             tools:layout_editor_absoluteX="123dp"
             tools:layout_editor_absoluteY="491dp" />
 
@@ -148,10 +148,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginBottom="70dp"
-            android:text="@string/hargaSate"
-            app:layout_constraintBottom_toBottomOf="@+id/chkNasi"
+            android:text="@string/hargaAdaan"
+            app:layout_constraintBottom_toBottomOf="@+id/chkPempekLenjerBesar"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/chkSateAyam"
+            app:layout_constraintTop_toBottomOf="@+id/chkPempekAdaan"
             tools:layout_editor_absoluteX="123dp"
             tools:layout_editor_absoluteY="491dp" />
 
@@ -161,10 +161,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginBottom="70dp"
-            android:text="@string/hargaNasi"
-            app:layout_constraintBottom_toBottomOf="@+id/chkNasi"
+            android:text="@string/hargaLenjerBesar"
+            app:layout_constraintBottom_toBottomOf="@+id/chkPempekLenjerBesar"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/chkNasi"
+            app:layout_constraintTop_toBottomOf="@+id/chkPempekLenjerBesar"
             tools:layout_editor_absoluteX="123dp"
             tools:layout_editor_absoluteY="491dp" />
 
